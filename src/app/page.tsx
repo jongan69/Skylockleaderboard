@@ -1,6 +1,4 @@
 'use client';
-
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
 
@@ -22,7 +20,7 @@ export default function Home() {
         if (!response.ok) throw new Error(data.error);
         
         // Transform data to match User type
-        const formattedData = data.map((user: any) => ({
+        const formattedData = data.map((user: { username: string; score: number }) => ({
           name: user.username,
           score: user.score
         }));
